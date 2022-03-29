@@ -1,3 +1,5 @@
+import os
+import csv
 import requests
 from bs4 import BeautifulSoup
 
@@ -65,4 +67,24 @@ def get_all_info_book (url, home_url) :
     table_info = get_table_info(soup)
     upc, price_including_tax, price_excluding_tax, number_available = table_info
     return url, title, category, image_url, review_rating, description, upc, price_including_tax, price_excluding_tax, number_available
+
+def import_csv_category(category, info):
+    en_tete = ["Product_page_url", "Title", "Category", "Image Url", "Review Rating", "Description", "UPC", "Price_incl_tva", "Price_excl_tva", "Stock"]
+    try:
+        os.makedirs("Scraper")
+    except FileExistsError:
+        pass
+    file_name = category + ".csv"
+    with open("Scraper/" + file_name, "w") as f_csv:
+        writer = csv.writer(f_csv , delimiter = ',')
+        writer.writerow(en_tete)
+        for i in range(len(info)) :
+            writer.writerow(info[i])
+
+def get_all_books_infos_in_catogory(urls_books, home_url):
+    infos = []
+    for book in urls_books :
+        all_infos_book = get_all_info_book(book, home_url)
+        infos.append(all_infos_book)
+    return infos
 
