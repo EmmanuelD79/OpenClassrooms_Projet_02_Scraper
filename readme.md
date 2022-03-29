@@ -1,7 +1,5 @@
 # OpenClassrooms_Projet_02_Scraper
 
-[![forthebadge](https://forthebadge.com/generator/?plabel=USES&slabel=PYTHON&pbg=%235D9741&sbg=%23C1D72F)](http://forthebadge.com)  
-
 Ce projet est le deuxième projet de la formation Openclassrooms Développeur d'application PYTHON.
 Le but de ce projet est de coder un scraper pour extraire les données suivantes : 
 
@@ -17,35 +15,35 @@ Le but de ce projet est de coder un scraper pour extraire les données suivantes
 	- Le quantité en stock (number_available)
 
 du site books.toscrape.com dans des fichiers CSV pour chacune des catégories de livre présentes sur le site mais également de télécharger toutes les couvertures des livres.
-Puis de compresser l'ensemble des fichiers dans une archive zip.
+<br>Puis de compresser l'ensemble des fichiers dans une archive zip.
 
 
 ## Pour commencer
 
 cloner le projet avec la commande sur votre terminal :
-git clone https://github.com/EmmanuelD79/OpenClassrooms_Projet_02_Scraper.git
+<br> git clone https://github.com/EmmanuelD79/OpenClassrooms_Projet_02_Scraper.git
 
 ### Pré-requis
 
 vous devez créer un environnement virtuel avec la commande sur votre terminal:
-	python -m venv env
+	<br>python -m venv env
 
 puis activer votre environnement virtuel :
-	sur windows : .\env\scripts\activate
-	sur mac et linux : source env/bin/activate
+	<br>sur windows : .\env\scripts\activate
+	<br>sur mac et linux : source env/bin/activate
 
 
 ### Installation
 
 Pour utiliser ce projet, il est nécessaire d'installer les modules du fichier requirements.txt
-Pour installer automatiquement ces modules, vous pouvez utiliser dans votre terminal la commande suivante :
-	pip install -r requirements.txt
+<br>Pour installer automatiquement ces modules, vous pouvez utiliser dans votre terminal la commande suivante :
+	<br>pip install -r requirements.txt
 
 
 ## Démarrage
 
 Pour démarrer le projet, vous devez aller dans le répertoire du projet et taper sur votre terminal la commande:
-	python main.py
+	<br>python main.py
 
 Le programme démarre et vous demande de choisir entre le scraping d'une page, d'une catégorie ou du site.
 

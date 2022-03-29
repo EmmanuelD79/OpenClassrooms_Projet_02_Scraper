@@ -1,7 +1,6 @@
 from var import *
-from infos_books import *
 from infos_categories import *
-
+from infos_books import *
 
 url_dict = {}
 url_dict["Site"] = url_site

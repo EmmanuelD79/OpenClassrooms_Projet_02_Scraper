@@ -2,8 +2,8 @@ import os
 import csv
 import requests
 from bs4 import BeautifulSoup
-import shutil
 import re
+import shutil
 
 def get_requests(url):
     response = requests.get(url)
