@@ -4,11 +4,12 @@ from infos_categories import *
 
 
 url_dict = {}
+url_dict["Site"] = url_site
 url_dict["Categorie"] = url_site
 url_dict["Produit"] = url_product
 
 while True:
-    demande = input("choissisez en : Categorie ou Produit ? ")
+    demande = input("choissisez en : Site, Categorie ou Produit ? ")
     if demande in url_dict :
         url = url_dict[demande]
         break
@@ -27,7 +28,7 @@ if demande == "Produit" :
     print(f"Le prix H.T. est de {all_infos_book[7]} £")
     print(f"Le prix T.T.C. est de {all_infos_book[8]} £")
     print(f"Le stock est de {all_infos_book[9]} unitée(s)")
-else :
+elif demande == "Categorie":
     categories = import_all_category(url, home_url)
     while True :
         answer_category = input("choissisez une catégorie ? ")
@@ -39,3 +40,11 @@ else :
             print("vous avez fait un mauvais choix")
     infos = get_all_books_infos_in_catogory(urls_books, home_url)
     import_csv_category(answer_category,infos)
+else :
+    categories = import_all_category(url_site, home_url)
+    list_category = list(categories.keys())
+    for every_category in list_category :
+        url = categories[every_category]
+        urls_books = import_urls_books_in_category(url, home_url)
+        infos = get_all_books_infos_in_catogory(urls_books, home_url)
+        import_csv_category(every_category, infos)
