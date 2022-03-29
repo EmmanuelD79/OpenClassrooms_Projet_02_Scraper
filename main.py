@@ -40,6 +40,7 @@ elif demande == "Categorie":
             print("vous avez fait un mauvais choix")
     infos = get_all_books_infos_in_catogory(urls_books, home_url)
     import_csv_category(answer_category,infos)
+    get_zip_file()
 else :
     categories = import_all_category(url_site, home_url)
     list_category = list(categories.keys())
@@ -48,3 +49,4 @@ else :
         urls_books = import_urls_books_in_category(url, home_url)
         infos = get_all_books_infos_in_catogory(urls_books, home_url)
         import_csv_category(every_category, infos)
+    get_zip_file()

@@ -2,6 +2,8 @@ import os
 import csv
 import requests
 from bs4 import BeautifulSoup
+import shutil
+import re
 
 def get_requests(url):
     response = requests.get(url)
@@ -70,16 +72,18 @@ def get_all_info_book (url, home_url) :
 
 def import_csv_category(category, info):
     en_tete = ["Product_page_url", "Title", "Category", "Image Url", "Review Rating", "Description", "UPC", "Price_incl_tva", "Price_excl_tva", "Stock"]
+    file_csv_directory = "Scraper/csv"
     try:
-        os.makedirs("Scraper")
+        os.makedirs(file_csv_directory)
     except FileExistsError:
         pass
     file_name = category + ".csv"
-    with open("Scraper/" + file_name, "w") as f_csv:
+    with open(file_csv_directory + "/"  + file_name, "w") as f_csv:
         writer = csv.writer(f_csv , delimiter = ',')
         writer.writerow(en_tete)
         for i in range(len(info)) :
             writer.writerow(info[i])
+            get_image_file(info[i][3], info[i][1],info[i][2])
 
 def get_all_books_infos_in_catogory(urls_books, home_url):
     infos = []
@@ -88,3 +92,21 @@ def get_all_books_infos_in_catogory(urls_books, home_url):
         infos.append(all_infos_book)
     return infos
 
+def get_image_file(url, name_book, category) :
+    file_image = requests.get(url)
+    if file_image.status_code == 200 :
+        file_name = re.sub(r"[^a-zA-Z0-9]", "_", name_book)
+        category = re.sub(r"[^a-zA-Z0-9]", "_", category)
+        file_directory = "Scraper/img/" + category
+        try:
+            os.makedirs(file_directory)
+        except FileExistsError:
+            pass
+        with open(file_directory + "/"+ file_name + ".jpg", "wb") as f :
+            f.write(file_image.content)
+            f.close()
+    else :
+        print("l'image du livre " + name_book + "n'a pas pu être télécharger")
+
+def get_zip_file ():
+    shutil.make_archive("scraper", "zip", "Scraper")
