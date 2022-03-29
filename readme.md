@@ -15,7 +15,7 @@ Le but de ce projet est de coder un scraper pour extraire les données suivantes
 	- Le quantité en stock (number_available)
 
 du site books.toscrape.com dans des fichiers CSV pour chacune des catégories de livre présentes sur le site mais également de télécharger toutes les couvertures des livres.
-Puis de compresser l'ensemble des fichiers dans une archive zip.
+<br>Puis de compresser l'ensemble des fichiers dans une archive zip.
 
 
 ## Pour commencer
@@ -36,7 +36,7 @@ puis activer votre environnement virtuel :
 ### Installation
 
 Pour utiliser ce projet, il est nécessaire d'installer les modules du fichier requirements.txt
-Pour installer automatiquement ces modules, vous pouvez utiliser dans votre terminal la commande suivante :
+<br>Pour installer automatiquement ces modules, vous pouvez utiliser dans votre terminal la commande suivante :
 	<br>pip install -r requirements.txt
 
 
