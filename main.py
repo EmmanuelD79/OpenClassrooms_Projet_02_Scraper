@@ -26,7 +26,7 @@ if demande == "Produit" :
     print(f"L'UPC est : {all_infos_book[6]}")
     print(f"Le prix H.T. est de {all_infos_book[7]} £")
     print(f"Le prix T.T.C. est de {all_infos_book[8]} £")
-    print(f"Le stock est de {all_infos_book[9]} unitée(s)")
+    print(f"Le stock est de {all_infos_book[9]} unité(s)")
 elif demande == "Categorie":
     categories = import_all_category(url, home_url)
     while True :
